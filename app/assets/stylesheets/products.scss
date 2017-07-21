@@ -1,6 +1,15 @@
 main section.products-index,
 main section.categories-show {
 
+  @mixin aside ($bgColor) {
+    position: absolute;
+    padding: 10px;
+    background-color: $bgColor;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 20px;
+    font-size: 0.8em;
+  }
+
   .products {
     display:         flex;
     flex-direction:  row;
@@ -41,14 +50,15 @@ main section.categories-show {
       }
 
       aside.price {
-        position: absolute;
+        @include aside (#eee);
         top: 0;
         right: 0;
-        padding: 10px;
-        background-color: #eee;
-        border-top-right-radius: 4px;
-        border-bottom-left-radius: 20px;
-        font-size: 0.8em;
+      }
+
+      aside.availability {
+        @include aside (#dd9999);
+        top: 0;
+        left: 0;
       }
 
       &:hover {
@@ -72,5 +82,3 @@ main section.products-show {
     }
   }
 }
-
-
