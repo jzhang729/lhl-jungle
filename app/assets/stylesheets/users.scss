@@ -1,0 +1,36 @@
+$elementSpacing: 15px;
+$inputBorderColor: #999;
+$inputPadding: 5px;
+
+li.signed-in {
+  span {
+    display: inline-block;
+    padding: 15px;
+  }
+}
+
+.sign-up-form, .login-form {
+  * {
+    display: block;
+  }
+
+  label {
+    margin-top: $elementSpacing;
+  }
+
+  input[type=text] {
+    width: 60%;
+    border: 1px solid gray;
+    padding: $inputPadding;
+  }
+
+  input[type=password] {
+    width: 60%;
+    border: 1px solid $inputBorderColor;
+    padding: $inputPadding;
+  }
+
+  input[type=submit] {
+    margin-top: $elementSpacing;
+  }
+}
