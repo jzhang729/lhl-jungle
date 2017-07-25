@@ -1,0 +1,20 @@
+<% if product = Product.find_by_id(li.product_id) %>
+  <tr>
+    <!-- Name -->
+    <td><%= product.name %></td>
+
+    <!-- Description -->
+    <td>
+      <img class="line-item-image" src="<%= product.image %>" alt="<%= product.name %>" />
+      <%= product.description %>      
+    </td>
+
+    <!-- Price -->
+    <td>$<%= sprintf("%.2f", li.item_price_cents / 100.00) %></td>
+
+    <!-- Quantity -->
+    <td><%= li.quantity%></td>
+
+    <td>$<%= sprintf("%.2f", li.total_price_cents / 100.00) %></td>
+  </tr>
+<% end %>

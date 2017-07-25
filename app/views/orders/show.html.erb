@@ -6,7 +6,30 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <h5>A confirmation has been sent to <strong><%= @order.email %></strong></h5>
   </div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="thead-default">
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.line_items.each do |li| %>
+        <%= render partial: "line_item", locals: { li: li } %>
+      <% end %>
+      <tr class="order-total">
+        <td colspan="4">Total</td>
+        <td>$<%= sprintf("%.2f", @order.total_cents / 100.00) %></td>
+      </tr>
+    </tbody>
+
+  </table>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
