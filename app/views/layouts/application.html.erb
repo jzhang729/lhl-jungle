@@ -11,6 +11,9 @@
   <%= render 'layouts/top_nav' %>
 
   <main class="container">
+    <% flash.each do |k,v| %>
+      <div class="alert alert-<%= k %>" role="alert"><%= v %></div>
+    <% end %>
     <%= yield %>
   </main>
 

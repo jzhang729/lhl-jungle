@@ -4,25 +4,49 @@
     <h1>Sign Up</h1>
   </header>
 
-  <div class="sign-up-form">
-    <%= form_for :user, url: '/users' do |f| %>
-      <%= label_tag :first_name, "First Name" %>
-      <%= f.text_field :first_name %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= form_for @user do |f| %>
 
-      <%= label_tag :last_name, "Last Name" %>
-      <%= f.text_field :last_name %>
+        <% if f.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>Signing up failed because of the following errors:</strong>
+            <ul>
+              <% f.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-      <%= label_tag :email, "Email" %>
-      <%= f.text_field :email %>
+        <div class="form-group">
+          <%= label_tag :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
 
-      <%= label_tag :password, "Password" %>
-      <%= f.password_field :password %>
+        <div class="form-group">
+          <%= label_tag :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
 
-      <%= label_tag :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+        <div class="form-group">
+          <%= label_tag :email %>
+          <%= f.text_field :email %>
+        </div>
 
-      <%= f.submit "Submit" %>
+        <div class="form-group">
+          <%= label_tag :password %>
+          <%= f.password_field :password %>
+        </div>
 
-    <% end %>
+        <div class="form-group">
+          <%= label_tag :password_confirmation %>
+          <%= f.password_field :password_confirmation %>
+        </div>
+
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
+
 </section>
